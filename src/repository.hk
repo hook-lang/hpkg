@@ -1,0 +1,15 @@
+//
+// repository.hk
+//
+
+import { system } from os;
+
+fn download_package(package) {
+  system("mkdir -p deps");
+  system("git clone --depth=1 --quiet " + package.repository + " deps/" + package.name);
+  system("cd ..");
+}
+
+return {
+  download_package: download_package
+};

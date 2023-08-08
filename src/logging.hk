@@ -1,0 +1,26 @@
+//
+// loggin.hk
+//
+
+fn log(level, message) {
+  println(level + ": " + message);
+}
+
+fn info(message) {
+  log("Info", message);
+}
+
+fn warn(message) {
+  log("Warn", message);
+}
+
+fn error(message) {
+  log("Error", message);
+  exit(1);
+}
+
+return {
+  info: info,
+  warn: warn,
+  error: error
+};

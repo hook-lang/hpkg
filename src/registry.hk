@@ -1,0 +1,34 @@
+//
+// registry.hk
+//
+
+let packages = [
+  {
+    vendor: "hook-lang",
+    name: "hpkg",
+    description: "Hook's Package Manager",
+    repository: "https://github.com/hook-lang/hpkg",
+    license: "MIT"
+  },
+  {
+    vendor: "hook-lang",
+    name: "cowsay",
+    description: "Hook's Cowsay",
+    repository: "https://github.com/hook-lang/hook-cowsay",
+    license: "MIT"
+  }
+];
+
+fn find_package(name, version) {
+  foreach (package in packages) {
+    if (package.name != name) {
+      continue;
+    }
+    return [package, nil];
+  }
+  return [nil, "Package not found: " + name];
+}
+
+return {
+  find_package: find_package
+};

@@ -1,0 +1,7 @@
+//
+// cowsay_test.hk
+//
+
+import cowsay;
+
+cowsay.say("Hello, world!");

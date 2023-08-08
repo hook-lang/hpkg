@@ -1,0 +1,13 @@
+//
+// manifest.hk
+//
+
+import { error } from "logging.hk";
+
+fn load_manifest(package) {
+  error("Unimplemented function: load_manifest");
+}
+
+return {
+  load_manifest: load_manifest
+};

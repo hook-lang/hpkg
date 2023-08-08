@@ -1,0 +1,7 @@
+{
+  "name": "hpkg",
+  "version": "0.1.0",
+  "description": "Hook's Package Manager",
+  "author": "Fábio de Souza Villaça Medeiros",
+  "license": "MIT"
+}

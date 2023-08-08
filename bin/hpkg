@@ -1,0 +1,101 @@
+#!/usr/bin/env hook
+
+import { info, warn, error } from "../src/logging.hk";
+import { init, install, uninstall, update } from "../src/main.hk";
+
+fn usage() {
+  println("Usage: hpkg <command> [arguments]");
+  println("");
+  println("Commands:");
+  println("  version   Prints the version of hpkg");
+  println("  init      Initializes a package in current directory");
+  println("  install   Install a package");
+  println("  uninstall Uninstall a package");
+  println("  update    Update a package");
+  println("");
+}
+
+fn install_usage() {
+  println("Usage: hpkg install <package> [version]");
+  println("");
+  println("Arguments:");
+  println("  package  The package to install");
+  println("  version  The version to install (default: latest)");
+  println("");
+}
+
+fn uninstall_usage() {
+  println("Usage: hpkg uninstall <package>");
+  println("");
+  println("Arguments:");
+  println("  package  The package to uninstall");
+  println("");
+}
+
+fn update_usage() {
+  println("Usage: hpkg update <package> [version]");
+  println("");
+  println("Arguments:");
+  println("  package  The package to update");
+  println("  version  The version to update (default: latest)");
+  println("");
+}
+
+fn version_command() {
+  println("hpkg 0.1.0");
+}
+
+fn init_command() {
+  init();
+}
+
+fn install_command(args) {
+  if (len(args) < 1) {
+    install_usage();
+    return;
+  }
+  let package = args[0];
+  let version = if (len(args) > 2) args[2] else nil;
+  install(package, version);
+}
+
+fn uninstall_command(args) {
+  if (len(args) < 1) {
+    uninstall_usage();
+    return;
+  }
+  let package = args[0];
+  uninstall(package);
+}
+
+fn update_command(args) {
+  if (len(args) < 1) {
+    update_usage();
+    return;
+  }
+  let package = args[0];
+  let version = if (len(args) > 2) args[2] else nil;
+  update(package, version);
+}
+
+fn execute(cmd, args) {
+  match (cmd) {
+    "version" => version_command();
+    "init" => init_command();
+    "install" => install_command(args);
+    "uninstall" => uninstall_command(args);
+    "update" => update_command(args);
+    _ => error("Unknown command: " + cmd);
+  }
+}
+
+fn process() {
+  if (len(args) < 1) {
+    usage();
+    return;
+  }
+  let cmd = args[0];
+  execute(cmd, args[1 .. len(args) - 1]);
+}
+
+process();

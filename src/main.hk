@@ -1,0 +1,34 @@
+//
+// main.hk
+//
+
+import { error } from "logging.hk";
+import { find_package } from "registry.hk";
+import { download_package } from "repository.hk";
+
+fn init() {
+  error("Unimplemented function: init");
+}
+
+fn install(package_name, version) {
+  let [package, err] = find_package(package_name, version);
+  if (err) {
+    error(err);
+  }
+  download_package(package);
+}
+
+fn uninstall(package_name) {
+  error("Unimplemented function: uninstall");
+}
+
+fn update(package_name, version) {
+  error("Unimplemented function: update");
+}
+
+return {
+  init: init,
+  install: install,
+  uninstall: uninstall,
+  update: update
+};
