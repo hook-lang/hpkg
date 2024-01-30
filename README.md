@@ -1,7 +1,7 @@
 
 # Hook's Package Manager
 
-This is a package manager for the [Hook](https://github.com/fabiosvm/hook-lang) programming language.
+This is a package manager for the [Hook](https://github.com/hook-lang/hook) programming language.
 
 > **Warning**: This package manager is still in development and is not ready for production.
 
@@ -9,7 +9,7 @@ This is a package manager for the [Hook](https://github.com/fabiosvm/hook-lang) 
 
 Let's start installing the `hpkg`, and then we will install the `cowsay` package.
 
-> **Note**: Before installing the `hpkg`, make sure you have the [Hook](https://github.com/fabiosvm/hook-lang) installed.
+> **Note**: Before installing the `hpkg`, make sure you have the [Hook](https://github.com/hook-lang/hook) installed.
 
 ### Installing the package manager
 
@@ -18,7 +18,7 @@ The `hpkg` can be installed by just 3 steps:
 1. Clone this repository in your home directory:
 
 ```
-cd ~ && git clone https://github.com/fabiosvm/hpkg
+cd ~ && git clone https://github.com/hook-lang/hpkg
 ```
 
 2. Add the `hpkg/bin` directory to your `PATH`, and modify the `HOOK_PATH` environment variable:
